@@ -32,7 +32,7 @@ void insertevent(struct event *p)
         p->prev=NULL;
     }
     else {
-        for (qold = q; q !=NULL && p->evtime > q->evtime; q=q->next)
+        for (qold = q; q !=NULL && p->evtime >= q->evtime; q=q->next)
             qold=q; 
         if (q==NULL) {
             qold->next = p;

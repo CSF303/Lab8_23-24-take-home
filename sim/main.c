@@ -4,12 +4,7 @@ int main(int argc, char *argv[])
 {
     struct event *eventptr;
 
-    dts = (struct distance_table *) malloc(num_nodes * sizeof(struct distance_table));
-    link_costs = (int **) malloc(num_nodes * sizeof(int *));
-
     FILE *file = fopen(argv[2], "r");
-    dts = (struct distance_table *) malloc(num_nodes * sizeof(struct distance_table));
-    link_costs = (int **) malloc(num_nodes * sizeof(int *));
     char ch;
     num_nodes = 0;
     int max_iterations = atoi(argv[1]);
@@ -19,6 +14,8 @@ int main(int argc, char *argv[])
         }
     }
     num_nodes++;
+    dts = (struct distance_table *) malloc(num_nodes * sizeof(struct distance_table));
+    link_costs = (int **) malloc(num_nodes * sizeof(int *));
     fseek(file, 0, SEEK_SET);
     for (int i = 0; i < num_nodes; i++)
     {
