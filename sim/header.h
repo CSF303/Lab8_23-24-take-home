@@ -100,13 +100,13 @@ void send2neighbor(unsigned char* buffer)
         exit(1);
         return;
     }
-    free(packet);
 
     evptr = (struct event *)malloc(sizeof(struct event));
     evptr->eventity = packet->dest_router;
     evptr->packet_buffer_ptr = buffer;
     evptr->evtime = clocktime + 1;
     insertevent(evptr);
+    free(packet);
 } 
 
 #endif
